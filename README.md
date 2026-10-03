@@ -36,7 +36,7 @@ python tools/seed_demo_user.py   # optional: creates demo / Demo@12345
 uvicorn main:app --reload
 ```
 
-Open <http://localhost:8000>. Interactive API docs: <http://localhost:8000/docs>.
+Then open <http://localhost:8000>. Interactive API docs: <http://localhost:8000/docs>.
 Without `GOOGLE_API_KEY` the app still runs and returns clearly labelled offline estimates.
 
 Docker: `docker build -t pocketsmart-ai .` then `docker run -p 8000:8000 --env-file .env pocketsmart-ai`.
