@@ -21,7 +21,7 @@
 - **Reliability**: automatic Gemini model fallback chain and an offline fallback plan if the AI is unavailable.
 - **Accounts**: register, login (bcrypt + JWT in an HttpOnly cookie), logout, sessions, dashboard and saved history.
 
-## Quick start
+## Quick start (local setup)
 
 ```bash
 git clone https://github.com/kaushalravin/Pocketsmart-AI.git
