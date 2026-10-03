@@ -3,7 +3,7 @@
 Measures PocketSmart's own overhead in OFFLINE-FALLBACK mode (no Gemini call), so results
 exclude Gemini network latency. Usage:
     uvicorn main:app --port 8000     # in another terminal, ideally with GOOGLE_API_KEY unset
-    python tests/perf_load.py [base_url] [users] [seconds]
+    python tools/perf_load.py [base_url] [users] [seconds]
 """
 import statistics
 import sys

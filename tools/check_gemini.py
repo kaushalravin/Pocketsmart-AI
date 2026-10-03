@@ -1,14 +1,17 @@
 """Activity 1.3 - validate Gemini connectivity (text-only and text + image).
 
-Usage:  python check_gemini.py [optional_image.jpg]
+Usage (from the project root):  python tools/check_gemini.py [optional_image.jpg]
 Needs GOOGLE_API_KEY in .env. Tries the configured model, then the fallback chain.
 """
 import sys
+from pathlib import Path
 
-from PIL import Image, ImageDraw
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # make project modules importable
 
-import config
-from gemini_utils import _model_chain, gemini_configured
+from PIL import Image, ImageDraw  # noqa: E402
+
+import config  # noqa: E402
+from gemini_utils import _model_chain, gemini_configured  # noqa: E402
 
 
 def main() -> int:

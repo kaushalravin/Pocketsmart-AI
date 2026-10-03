@@ -24,7 +24,7 @@
 | 4 | Q&A Session | Be ready to explain the Gemini fallback chain, budget trimming and JWT logout |
 
 ### Pre-demo checklist
-- `.env` has a working `GOOGLE_API_KEY`; run `python check_gemini.py` the day before.
+- `.env` has a working `GOOGLE_API_KEY`; run `python tools/check_gemini.py` the day before.
 - `python tools/seed_demo_user.py` has been run; server started with `uvicorn main:app`.
 - Keep an outfit photo (JPG/PNG under 5 MB) ready on the desktop.
 - If Wi-Fi fails, the app still shows offline estimates; explain the fallback as a feature.

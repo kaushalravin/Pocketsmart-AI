@@ -28,17 +28,17 @@ Three tiers: a responsive HTML/CSS/JS front end (Jinja2 templates), a FastAPI ba
 
 | Milestone | Activities | Where in the code |
 |---|---|---|
-| 1. Gemini AI Initialization | 1.1 Create Google AI Studio account; 1.2 generate and store the API key in `.env`; 1.3 validate text and image connectivity | `.env.example`, `config.py`, `check_gemini.py` |
+| 1. Gemini AI Initialization | 1.1 Create Google AI Studio account; 1.2 generate and store the API key in `.env`; 1.3 validate text and image connectivity | `.env.example`, `config.py`, `tools/check_gemini.py` |
 | 2. Core Functionalities Development | 2.1 FastAPI initialization and imports; 2.2 planner endpoints with Gemini prompts; 2.3 login/register routing; 2.4 modular structure with `/token`, `/session-info`, `/session-data` | `main.py`, `gemini_utils.py`, `auth.py`, `models.py` |
 | 3. Backend - FastAPI Integration | 3.1 `/home-budget`, `/party-budget`, `/jewelry-budget` (aliases `/generate-*`) and auth routes; 3.2 `/recommendation-details/{id}`; 3.3 CORS, `/history`; 3.4 startup task and `__main__` | `main.py` |
 | 4. UI Development | 4.1 landing page, forms, card-style results; dynamic rendering with JavaScript | `templates/`, `static/` |
-| 5. Testing & Optimization | 5.1 real-world inputs across the planners; 5.2 response quality and budget adherence; 5.3 prompt tuning and validation; 5.4 fallback recommendations | `tests/`, `gemini_utils.py` |
+| 5. Testing & Optimization | 5.1 real-world inputs across the planners; 5.2 response quality and budget adherence; 5.3 prompt tuning and validation; 5.4 fallback recommendations | `tests/`, `tools/perf_load.py`, `gemini_utils.py` |
 
 ## Milestone 1: Gemini AI Initialization
 
 1. Sign in at https://aistudio.google.com and choose **Get API key** then **Create API key**.
 2. Copy the key into `.env` as `GOOGLE_API_KEY` (never commit `.env`).
-3. Run `python check_gemini.py`. It sends a text prompt and a text + image prompt, tries the configured model and then fallback models, and prints which model to use.
+3. Run `python tools/check_gemini.py`. It sends a text prompt and a text + image prompt, tries the configured model and then fallback models, and prints which model to use.
 
 Note: the original brief refers to "Gemini 1.5 Flash Pro". That model name does not exist and the 1.5 family is retired, so the model is configurable (`GEMINI_MODEL`).
 

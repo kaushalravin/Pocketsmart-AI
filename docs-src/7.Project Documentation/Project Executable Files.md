@@ -20,14 +20,13 @@
 ## Step 2: File / Folder Structure
 
 ```
-PocketSmart-AI/
+Pocketsmart-AI/
 |-- main.py                    FastAPI app: routes, sessions, wiring
 |-- gemini_utils.py            Gemini service: prompts, budget validation, shopping links, fallback
 |-- auth.py                    Password hashing, JWT, token blacklist, sessions
 |-- models.py                  Pydantic input / session schemas
 |-- database.py                SQLite schema and queries
 |-- config.py                  Settings from environment variables
-|-- check_gemini.py            Activity 1.3: Gemini connectivity check (text + image)
 |-- requirements.txt           Runtime dependencies
 |-- requirements-dev.txt       Test and documentation tooling
 |-- .env.example               Environment template (copy to .env)
@@ -35,8 +34,9 @@ PocketSmart-AI/
 |-- templates/                 base, index, login, register, dashboard, home_planner,
 |                              party_planner, jewelry_planner, history (.html)
 |-- static/                    styles.css, app.js, uploads/
-|-- tests/                     test_app.py (43 tests), conftest.py, perf_load.py
-|-- tools/                     capture_screenshots.py, build_docs.py, seed_demo_user.py
+|-- tests/                     test_app.py (43 tests), conftest.py
+|-- tools/                     check_gemini.py (Activity 1.3 connectivity check), perf_load.py (load test),
+|                              seed_demo_user.py, capture_screenshots.py, build_docs.py
 |-- docs-src/                  Editable Markdown sources and project.json for the PDFs
 |-- 1. Brainstorming & Ideation/ ... 8.Project Demonstration/   Phase deliverables (PDF)
 `-- README.md
@@ -55,11 +55,11 @@ PocketSmart-AI/
 ## Step 4: Run Instructions
 
 1. Install Python 3.10 or newer and Git.
-2. `git clone {{repo_url}}` then `cd PocketSmart-AI`
+2. `git clone {{repo_url}}` then `cd Pocketsmart-AI`
 3. Create and activate a virtual environment: `python -m venv venv` then `venv\Scripts\activate` (Windows) or `source venv/bin/activate` (macOS/Linux).
 4. `pip install -r requirements.txt`
 5. Copy `.env.example` to `.env`. Put your Gemini key from https://aistudio.google.com/apikey in `GOOGLE_API_KEY` and set `SECRET_KEY` to a long random string. Without a key the app still works in offline-fallback mode.
-6. Optional checks: `python check_gemini.py` (confirms Gemini access) and `python tools/seed_demo_user.py` (creates the demo account).
+6. Optional checks: `python tools/check_gemini.py` (confirms Gemini access) and `python tools/seed_demo_user.py` (creates the demo account).
 7. Start the server: `uvicorn main:app --reload` (or `python main.py`).
 8. Open http://localhost:8000, sign in, and use the Home, Party and Jewelry planners.
 9. Run the tests: `pip install -r requirements-dev.txt` then `pytest tests`.

@@ -6,7 +6,7 @@
 
 | Field | Details |
 |---|---|
-| Testing Tool Used | Custom Python load script `tests/perf_load.py` (httpx + threads, psutil for CPU/RAM sampling) |
+| Testing Tool Used | Custom Python load script `tools/perf_load.py` (httpx + threads, psutil for CPU/RAM sampling) |
 | Type of Testing | Load testing (1, 10 and 25 concurrent virtual users, 20 s each) |
 | Target Module / API | `POST /home-budget`, `POST /party-budget`, `POST /jewelry-budget`, `GET /recommendation-history` (rotating mix), after register + login |
 | Test Environment | Local: Linux, 2 vCPU, 8 GB RAM, single Uvicorn worker, load generator on the same machine. **Offline-fallback mode (no `GOOGLE_API_KEY`)**, so results measure PocketSmart's own overhead (validation, budget engine, SQLite) and exclude Gemini network latency |
@@ -37,7 +37,7 @@
 - PocketSmart's own processing is light: average latency stays at about 0.1 s even with 25 simultaneous users, and no request failed.
 - In production the response time is dominated by the Gemini call (typically a few seconds). Blocking AI calls run in FastAPI's threadpool, so a slow Gemini reply for one user does not block others.
 - Latency tails (max about 2 s) most likely come from bcrypt hashing at registration and login, which is intentionally slow for security.
-- **Not measured:** live Gemini latency, because no API key was available during automated testing. The team should run `python check_gemini.py` and time a planner request with the real key before the demo and add the figure here.
+- **Not measured:** live Gemini latency, because no API key was available during automated testing. The team should run `python tools/check_gemini.py` and time a planner request with the real key before the demo and add the figure here.
 - Scalability next steps: multiple Uvicorn workers, PostgreSQL, a shared session store (Redis) and response caching.
 
 ## Step 5: Screenshots / Evidence
