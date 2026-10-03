@@ -41,7 +41,7 @@ Without `GOOGLE_API_KEY` the app still runs and returns clearly labelled offline
 
 Docker: `docker build -t pocketsmart-ai .` then `docker run -p 8000:8000 --env-file .env pocketsmart-ai`.
 
-## Tests
+## Running tests
 
 ```bash
 pip install -r requirements-dev.txt
