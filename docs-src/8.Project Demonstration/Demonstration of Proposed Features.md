@@ -6,7 +6,7 @@
 
 | S.No | Feature Name | Description | Status (Implemented / Partial / Pending) | Demonstrated (Yes / No) | Remarks |
 |---|---|---|---|---|---|
-| 1 | Gemini setup and connectivity check | API key via `.env`; `check_gemini.py` tests text and image | Implemented | Yes | Needs the team's own API key |
+| 1 | Gemini setup and connectivity check | API key via `.env`; `tools/check_gemini.py` tests text and image | Implemented | Yes | Needs the team's own API key |
 | 2 | Home Interior planner | Budget split across lights, fans, furniture, tables, rooms | Implemented | Yes | Links to Amazon, Flipkart, IKEA, Myntra, Ajio |
 | 3 | Party planner | Venue, catering, decoration, entertainment, contingency | Implemented | Yes | Links to Swiggy, Zomato, BookMyShow, OYO and more |
 | 4 | Jewelry planner with outfit image | Multimodal analysis plus recommendations | Implemented | Yes | Needs Gemini; offline mode skips image analysis |

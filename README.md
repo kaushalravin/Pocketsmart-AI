@@ -24,14 +24,14 @@
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-github-username>/PocketSmart-AI.git
-cd PocketSmart-AI
+git clone https://github.com/kaushalravin/Pocketsmart-AI.git
+cd Pocketsmart-AI
 python -m venv venv
 venv\Scripts\activate            # Windows   (macOS/Linux: source venv/bin/activate)
 pip install -r requirements.txt
 copy .env.example .env           # macOS/Linux: cp .env.example .env
 # edit .env: set GOOGLE_API_KEY (https://aistudio.google.com/apikey) and SECRET_KEY
-python check_gemini.py           # optional: confirms Gemini works and picks a model
+python tools/check_gemini.py           # optional: confirms Gemini works and picks a model
 python tools/seed_demo_user.py   # optional: creates demo / Demo@12345
 uvicorn main:app --reload
 ```
@@ -46,12 +46,12 @@ Docker: `docker build -t pocketsmart-ai .` then `docker run -p 8000:8000 --env-f
 ```bash
 pip install -r requirements-dev.txt
 pytest tests                      # 43 tests: auth, validation, planners, history, Gemini mocks
-python tests/perf_load.py http://localhost:8000 25 20   # load test (server running)
+python tools/perf_load.py http://localhost:8000 25 20   # load test (server running)
 ```
 
 ## Live demo script (about 10 minutes)
 
-1. Run `python check_gemini.py`, then start the server and open the landing page.
+1. Run `python tools/check_gemini.py`, then start the server and open the landing page.
 2. Register (or sign in as `demo` / `Demo@12345`). Show the dashboard.
 3. **Home Planner**: budget 80000, 5 lights, 2 fans, 2 furniture, 1 dining table, Living Room + Kitchen. Point out the remaining budget and shop links.
 4. **Party Planner**: budget 40000, 30 guests, Birthday, Banquet hall. Show categories, venue suggestions and the contingency.
@@ -72,7 +72,7 @@ python tests/perf_load.py http://localhost:8000 25 20   # load test (server runn
 | `7.Project Documentation` | Project executable files guide, full project documentation |
 | `8.Project Demonstration` | Demo plan, team involvement, scalability, features, communication |
 
-Application code: `main.py` (routes), `gemini_utils.py` (AI service), `auth.py`, `models.py`, `database.py`, `config.py`, `templates/`, `static/`, `tests/`.
+Application code: `main.py` (routes), `gemini_utils.py` (AI service), `auth.py`, `models.py`, `database.py`, `config.py`, `templates/`, `static/`, `tests/` (pytest only), `tools/` (Gemini check, load test, demo seeding, docs build).
 
 Editable sources for every phase PDF live in `docs-src/` (set team ID, dates and links in `docs-src/project.json`, then run `python tools/build_docs.py`).
 

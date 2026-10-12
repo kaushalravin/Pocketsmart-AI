@@ -7,7 +7,7 @@
 | S.No | Code Quality Parameter | Description | Followed (Yes / No / Partial) | Remarks |
 |---|---|---|---|---|
 | 1 | Consistent Indentation | Uniform spacing/tabs used throughout the code | Yes | 4 spaces in Python, 2 in HTML/JS/CSS |
-| 2 | Proper File Structure | Files and folders are logically organized | Yes | `main.py` routes, `gemini_utils.py` AI service, `auth.py`, `models.py`, `database.py`, `config.py`, `templates/`, `static/`, `tests/` |
+| 2 | Proper File Structure | Files and folders are logically organized | Yes | `main.py` routes, `gemini_utils.py` AI service, `auth.py`, `models.py`, `database.py`, `config.py`, `templates/`, `static/`, `tests/` (pytest only), `tools/` (Gemini check, load test, demo seeding, docs build) |
 | 3 | Meaningful Variable Names | Variables reflect their purpose clearly | Yes | e.g. `remaining_budget`, `shopping_links`, `blacklisted_tokens` |
 | 4 | Function / Method Names | Functions are descriptively named | Yes | e.g. `get_home_recommendations`, `build_shopping_links`, `save_upload_file` |
 | 5 | Code Comments | Inline and block comments explain logic | Yes | Module docstrings and comments for non-obvious logic |
